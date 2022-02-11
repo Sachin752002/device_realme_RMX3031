@@ -49,13 +49,13 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_OTG_SWITCH = "otg";
-	public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
-	public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
+    public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
+    public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
     public static final String KEY_GAME_SWITCH = "game";
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_CHARGING_SPEED = "charging_speed";
     public static final String KEY_RESET_STATS = "reset_stats";
-	public static final String KEY_DT2W_SWITCH = "dt2w";
+    public static final String KEY_DT2W_SWITCH = "dt2w";
     public static final String KEY_DND_SWITCH = "dnd";
     public static final String KEY_CABC = "cabc";
     public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
@@ -68,14 +68,14 @@ public class DeviceSettings extends PreferenceFragment
     public static SecureSettingListPreference mChargingSpeed;
     public static TwoStatePreference mResetStats;
     public static TwoStatePreference mRefreshRate120Forced;
-	private static TwoStatePreference mDT2WModeSwitch;
+    private static TwoStatePreference mDT2WModeSwitch;
     public static SeekBarPreference mSeekBarPreference;
     public static DisplayManager mDisplayManager;
     private static NotificationManager mNotificationManager;
     public TwoStatePreference mDNDSwitch;
     public PreferenceCategory mPreferenceCategory;
-	private Vibrator mVibrator;
-	private SecureSettingListPreference mVibStrength;
+    private Vibrator mVibrator;
+    private SecureSettingListPreference mVibStrength;
     private TwoStatePreference mDCModeSwitch;
     private TwoStatePreference mSRGBModeSwitch;
     private TwoStatePreference mHBMModeSwitch;
@@ -94,6 +94,8 @@ public class DeviceSettings extends PreferenceFragment
         prefs.edit().putString("ProductName", ProductName).apply();
 
         addPreferencesFromResource(R.xml.main);
+
+        mVibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
 
         mDCModeSwitch = findPreference(KEY_DC_SWITCH);
         mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
@@ -149,14 +151,13 @@ public class DeviceSettings extends PreferenceFragment
         mCABC.setValue(Utils.getStringProp(CABC_SYSTEM_PROPERTY, "0"));
         mCABC.setSummary(mCABC.getEntry());
         mCABC.setOnPreferenceChangeListener(this);
-		
-		mDT2WModeSwitch = (TwoStatePreference) findPreference(KEY_DT2W_SWITCH);
+	mDT2WModeSwitch = (TwoStatePreference) findPreference(KEY_DT2W_SWITCH);
         mDT2WModeSwitch.setEnabled(DT2WModeSwitch.isSupported());
         mDT2WModeSwitch.setChecked(DT2WModeSwitch.isCurrentlyEnabled(this.getContext()));
         mDT2WModeSwitch.setOnPreferenceChangeListener(new DT2WModeSwitch());
 
         mVibStrength = (SecureSettingListPreference) findPreference(KEY_VIBRATION_STRENGTH);
-        mVibStrength.setValue(Utils.getStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, "2500"));
+        mVibStrength.setValue(Utils.getStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, "0"));
         mVibStrength.setSummary(mVibStrength.getEntry());
         mVibStrength.setOnPreferenceChangeListener(this);
 
@@ -178,7 +179,8 @@ public class DeviceSettings extends PreferenceFragment
             mCABC.setSummary(mCABC.getEntry());
             Utils.setStringProp(CABC_SYSTEM_PROPERTY, (String) newValue);
         }
-		if (preference == mVibStrength) {
+
+	if (preference == mVibStrength) {
             mVibStrength.setValue((String) newValue);
             mVibStrength.setSummary(mVibStrength.getEntry());
             Utils.setStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, (String) newValue);

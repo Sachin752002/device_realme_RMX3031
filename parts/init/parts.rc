@@ -34,7 +34,3 @@ on property:persist.cabc_profile=2
 on property:persist.cabc_profile=3
     write /sys/kernel/oppo_display/LCM_CABC 3
 	
-# Vibration Strength
-on property:persist.vib_strength=*
-    write /sys/class/leds/vibrator/vmax ${persist.vib_strength}
-	
