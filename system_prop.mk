@@ -74,3 +74,6 @@ ro.surface_flinger.has_HDR_display=true
 # HW Overlay
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_hwc=1
+
+#AOD
+debug.force_no_blanking=true
