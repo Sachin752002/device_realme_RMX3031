@@ -73,8 +73,8 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">3500</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">800</integer>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
     <integer name="config_screenBrightnessDim">2</integer>
@@ -179,12 +179,13 @@
     <integer-array name="config_keyboardTapVibePattern">
         <item>0</item>
         <item>55</item>
+	<item>30</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>30</item>
+        <item>40</item>
     </integer-array>
 
     <!-- Vibrator pattern to be used as the default for notifications
