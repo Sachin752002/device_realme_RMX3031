@@ -73,7 +73,17 @@ ro.surface_flinger.has_HDR_display=true
 
 # HW Overlay
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.disable_hwc=1
+debug.sf.disable_hwc=1 \
+debug.egl.hw = 1 \
+dev.pm.gpu_samplingrate = 1 \
+debug.composition.type = gpu \
+debug.mdpcomp.maxlayer = 0 \
+debug.composition.type=gpu \
+debug.performance.tuning=1 \
+ro.max.fling_velocity=12000 \
+ro.min.fling_velocity=8000 \
+windowsmgr.max_events_per_sec=150 \
+ro.min_pointer_dur=8 
 
 #AOD
 debug.force_no_blanking=true
