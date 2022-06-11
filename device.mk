@@ -156,3 +156,7 @@ PRODUCT_PACKAGES += \
     WifiOverlay \
     DozeOverlaySystem \
     DozeOverlaySystemUI
+
+# Google Call recording
+PRODUCT_PACKAGES += \
+    com.google.android.apps.dialer.call_recording_audio.features.xml
