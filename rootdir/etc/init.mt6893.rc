@@ -73,3 +73,4 @@ on property:sys.boot_completed=1
     chown root root /sys/module/ged/parameters/gx_force_cpu_boost
     chown root root /proc/cpufreq/cpufreq_power_mode
     chown root root /proc/cpufreq/cpufreq_cci_mode
+    exec - root -- /system/bin/sh -c "service call SurfaceFlinger 1008 i32 1"
