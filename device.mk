@@ -23,9 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # RealmeParts
-PRODUCT_PACKAGES += \
-    RealmeParts \
-	parts.rc
+#PRODUCT_PACKAGES += \
+#    RealmeParts \
+#	parts.rc
 
 PRODUCT_SHIPPING_API_LEVEL := 30
 
