@@ -16,3 +16,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/cipher_RMX3031.mk
+    
+COMMON_LUNCH_CHOICES := \
+    cipher_RMX3031-user \
+    cipher_RMX3031-userdebug \
+    cipher_RMX3031-eng
