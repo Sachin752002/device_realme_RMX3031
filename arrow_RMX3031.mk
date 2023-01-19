@@ -22,10 +22,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/realme/RMX3031/device.mk)
 
 # Inherit some common Cipher stuff.
-$(call inherit-product, vendor/cipher/config/common_full_phone.mk)
+$(call inherit-product, vendor/arrow/config/common.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := cipher_RMX3031
+PRODUCT_NAME := arrow_RMX3031
 PRODUCT_DEVICE := RMX3031
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := Realme X7 Max 5G
@@ -39,9 +39,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="sys_oplus_mssi_64_cn-user-11-RP1A.200720.011-mp2tc16sppr5V1-release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
-
-# Target
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_SUPPORTS_QUICK_TAP := true
-CIPHER_GAPPS := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
