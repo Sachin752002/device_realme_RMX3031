@@ -111,6 +111,9 @@ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 
+# Inherit from the proprietary version
+include vendor/realme/RMX3031/BoardConfigVendor.mk
+
 # Partitions (Dynamic)
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_MAIN_SIZE := 10196353024
